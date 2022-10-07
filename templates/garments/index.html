@@ -1,10 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div>
+    <form class="add_garment" action="/garments" method="post">
+    <h4>Add Product:</h4>
+        <label for="garment_name">Name:</label>
+        <input type="text" name="garment_name" id="garment_name">
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<hr>
 <h1>All Garments</h1>
-    
-{% for garment in garments  %}
-    
-{% endfor %}
+<div>
+    {% for garment in garments  %}
+        <div>
+            <h3>{{ garment.name }}</h3>
+        </div>
+    {% endfor %}
+</div>
 
 {% endblock content %}

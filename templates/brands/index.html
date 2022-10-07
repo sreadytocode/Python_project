@@ -1,9 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div>
+    <form class="add_brand" action="/brands" method="post">
+    <h4>Add Brand:</h4>
+        <label for="brand_name">Name:</label>
+        <input type="text" name="brand_name" id="brand_name">
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<hr>
 <h1>All Brands</h1>
-    
-{% for brand in brands  %}
-    
-{% endfor %}
+    <div>
+        {% for brand in brands  %}
+            <div>
+                <h3>{{ brand.name }}</h3>
+            </div>
+        {% endfor %}
+
+    </div>
 {% endblock content %}
