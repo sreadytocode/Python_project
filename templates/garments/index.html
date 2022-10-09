@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
+<div class="add-heading">
     <h4>Add Product:</h4>
-    <form action="/garments" method="post">
+    <form class="add-garment" action="/garments" method="post">
         
         <div>
             <label for="brand">Brand:</label>
@@ -38,8 +38,9 @@
             <label for="selling_price">Selling Price:</label>
             <input type="number" name="selling_price" id="selling_price" placeholder="Enter details..." required>
         </div>
-
-        <input type="submit" value="Submit">
+        <div class="submit">
+            <input  type="submit" value="Submit">
+        </div>
     </form>
 </div>
 <hr>
@@ -49,6 +50,7 @@
         <div>
            <a href="/garments/{{ garment.id }}"><h3>{{ garment.name }}</h3></a> 
         </div>
+        <img src="static/css/{{garment.image}}" alt="{{garment.altImage}}"/>
         {% if garment.stock_quantity == 1 %}  
         <span>&#10071; Low Stock only {{ garment.stock_quantity }} item left!</span>
         {% endif %}

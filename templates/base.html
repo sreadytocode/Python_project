@@ -4,28 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://kit.fontawesome.com/19ad6b2305.js" crossorigin="anonymous"></script>
     <title>Shop inventory</title>
 </head>
 <body>
     <main>
-        <h1>Shop Name</h1>
+        <header>
+        <h1 class="title">Shop Name</h1>
         <nav>
             <ul>
-                <li>
-                    <a href="/">Home</a>
+                <li class="navLink">
+                    <a class="button" href="/brands">Brands</a>
                 </li>
             </ul>
             <ul>
-                <li>
-                    <a href="/brands">Brands</a>
+                <li class="navLink">
+                    <a class="button" href="/"> <i class="fa-solid fa-house"></i></a>
                 </li>
             </ul>
             <ul>
-                <li>
-                    <a href="/garments">Garments</a>
+                <li class="navLink">
+                    <a class="button" href="/garments">Garments</a>
                 </li>
             </ul>
         </nav>
+        </header>
         <section>
             <hr>
             {% block content %}
@@ -36,6 +40,6 @@
 </body>
 <hr>
 <footer>
-    <p>Footer</p>
+    <p>&copy Copyright by Sara</p>
 </footer>
 </html>

@@ -29,11 +29,11 @@
         </div>
         <div>
             <label for="buying_cost">Buying Cost:</label>
-            <input type="number" id="buying_cost" name="buying_cost" value="{{ garment.buying_cost }}" required>
+            <input type="number" id="buying_cost" min="0" step=".01" name="buying_cost" value="{{ garment.buying_cost }}" placeholder="£" required>
         </div>
         <div>
             <label for="selling_price">Selling Price:</label>
-            <input type="number" id="selling_price" name="selling_price" value="{{ garment.selling_price }}" required>
+            <input type="number" id="selling_price" min="0" step=".01" name="selling_price" value="{{ garment.selling_price }}" required>
         </div>
 
         <button type="submit">Update Garment Details</button>
