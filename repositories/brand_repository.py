@@ -47,8 +47,8 @@ def delete(id):
 
 def update(brand):
     sql = """
-    UPDATE brands SET (name)
-    = (%s) 
+    UPDATE brands SET name
+    = %s 
     WHERE id = %s
     """
     values = [brand.name, brand.id]

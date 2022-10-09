@@ -32,8 +32,13 @@ def edit_brand(id):
 
 @brands_blueprint.route("/brands/<id>", methods=['POST'])
 def update_brand_details(id):
-    name = request.form['brand_name']
-    brand = Brand(name, id)
-    brand_repository.update(brand)
+    name = request.form['name']
+    brands = Brand(name, id)
+    brand_repository.update(brands)
 
+    return redirect("/brands")
+
+@brands_blueprint.route("/brands/<id>/delete", methods=['POST'])
+def delete_brand(id):
+    brand_repository.delete(id)
     return redirect("/brands")
