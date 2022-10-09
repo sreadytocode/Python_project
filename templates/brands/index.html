@@ -2,12 +2,14 @@
 
 {% block content %}
 <div>
-    <form class="add_brand" action="/brands" method="post">
     <h4>Add Brand:</h4>
-        <label for="brand_name">Name:</label>
-        <input type="text" name="brand_name" id="brand_name">
+    <form class="add_brand" action="/brands" method="post">
+        <div>
+            <label for="brand_name">Name:</label>
+            <input type="text" name="brand_name" id="brand_name">
 
-        <input type="submit" value="Submit">
+        </div>
+            <input type="submit" value="Submit">
     </form>
 </div>
 <hr>
@@ -15,7 +17,9 @@
     <div>
         {% for brand in brands  %}
             <div>
-                <h3>{{ brand.name }}</h3>
+                <form action="/brands/{{ brand.id }}">
+                    <button class="brand-names"><h3>{{ brand.name }}</h3></button>
+                </form>
             </div>
         {% endfor %}
 
