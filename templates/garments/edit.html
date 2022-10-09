@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="/garments/{{garment.id}}" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ garment.name }}" required autofocus>
+        </div>
+
+        <div>
+            <label for="brands">Brand:</label>
+            <select name="brands" id="brands">
+                {% for brand in brands %}
+                    <option value= "{{ brand.id }}" 
+                    {% if brand.id == garment.brand.id %} selected="selected"{% endif %}>
+                    {{ brand.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+
+        <div>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" value="{{ garment.description }}" required>
+        </div>
+        <div>
+            <label for="stock_quantity">Stock Quantity:</label>
+            <input type="number" id="stock_quantity" name="stock_quantity" value="{{ garment.stock_quantity }}" required>
+        </div>
+        <div>
+            <label for="buying_cost">Buying Cost:</label>
+            <input type="number" id="buying_cost" name="buying_cost" value="{{ garment.buying_cost }}" required>
+        </div>
+        <div>
+            <label for="selling_price">Selling Price:</label>
+            <input type="number" id="selling_price" name="selling_price" value="{{ garment.selling_price }}" required>
+        </div>
+
+        <button type="submit">Update Garment Details</button>
+
+
+
+    </form>
+{% endblock content %}

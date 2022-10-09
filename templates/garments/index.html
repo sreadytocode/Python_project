@@ -2,26 +2,42 @@
 
 {% block content %}
 <div>
-    <form class="add_garment" action="/garments" method="post">
     <h4>Add Product:</h4>
+    <form action="/garments" method="post">
+        
+        <div>
+            <label for="brand">Brand:</label>
+            <select name="brand" id="brand_id">
+                {% for brand in brands %}
+                    <option value= "{{ brand.id }}">{{ brand.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
 
-        <label for="brand_id">Brand:</label>
-        <input type="text" name="brand_id" id="brand_id">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Enter details..." required>
+        </div>
 
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name">
+        <div>
+            <label for="description">Description:</label>
+            <input type="text" name="description" id="description" placeholder="Enter details..." required>
+        </div>
 
-        <label for="description">Description:</label>
-        <input type="text" name="description" id="description">
+        <div>
+            <label for="stock_quantity">Stock:</label>
+            <input type="number" name="stock_quantity" id="stock_quantity" placeholder="Enter details..." required>
+        </div>
 
-        <label for="stock_quantity">Stock:</label>
-        <input type="text" name="stock_quantity" id="stock_quantity">
+        <div>
+            <label for="buying_cost">Buying Cost:</label>
+            <input type="number" name="buying_cost" id="buying_cost" placeholder="Enter details..." required>
+        </div>
 
-        <label for="buying_cost">Buying Cost:</label>
-        <input type="text" name="buying_cost" id="buying_cost">
-
-        <label for="selling_price">Selling Price:</label>
-        <input type="text" name="selling_price" id="selling_price">
+        <div>
+            <label for="selling_price">Selling Price:</label>
+            <input type="number" name="selling_price" id="selling_price" placeholder="Enter details..." required>
+        </div>
 
         <input type="submit" value="Submit">
     </form>
@@ -31,8 +47,16 @@
 <div>
     {% for garment in garments  %}
         <div>
-            <h3>{{ garment.name }}</h3>
+           <a href="/garments/{{ garment.id }}"><h3>{{ garment.name }}</h3></a> 
         </div>
+        {% if garment.stock_quantity == 1 %}  
+        <span>&#10071; Low Stock only {{ garment.stock_quantity }} item left!</span>
+        {% endif %}
+
+        {% if garment.stock_quantity == 0 %}
+        <span>&#10060; Out of Stock!</span>
+            
+        {% endif %}
     {% endfor %}
 </div>
 

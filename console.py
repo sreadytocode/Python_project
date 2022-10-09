@@ -23,4 +23,7 @@ garment_repository.save(garment2)
 garment3 = Garment("Black and gold dress", brand1, "A dreamy noir dress with delicate embroidery details on chiffon. A mix of thread combined with golden zari and sequins weaves a magic to create this flawless heavenly design.", 16, 90.00, 120.00)
 garment_repository.save(garment3)
 
+brands = brand_repository.select_all()
+
+
 breakpoint

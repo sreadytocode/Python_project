@@ -1,4 +1,3 @@
-from cProfile import run
 from db.run_sql import run_sql
 
 from models.garment import Garment
@@ -13,7 +12,8 @@ def save(garment):
     """
     values = [garment.name, garment.brand.id, garment.description, garment.stock_quantity, garment.buying_cost, garment.selling_price]
     results = run_sql(sql, values)
-    garment.id = results[0]['id']
+    id = results[0]['id']
+    garment.id = id
     return garment
 
 def select_all():
@@ -50,7 +50,8 @@ def delete(id):
 
 def update(garment):
     sql = """
-    UPDATE garments SET (name, brand_id, description, stock_quantity, buying_cost, selling_price)
+    UPDATE garments SET 
+    (name, brand_id, description, stock_quantity, buying_cost, selling_price)
     = (%s, %s, %s, %s, %s, %s) 
     WHERE id = %s
     """

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <p>Name: {{ garment.name }} </p>
+    
+        {% for brand in brands %}
+            {% if brand.id == garment.brand.id %} 
+                <p>Brand: {{ brand.name }}</p>
+            {% endif %}   
+        {% endfor %}
+    
+        <p>Description: {{ garment.description }}</p>
+
+        
+        <p>Stock quantity: {{ garment.stock_quantity }}</p>
+        {% if garment.stock_quantity == 1 %}  
+        <span>&#10071; Low Stock!</span>
+        {% endif %}
+        
+        {% if  garment.stock_quantity == 0%}
+        <span>&#10060; Out of Stock!</span>            
+        {% endif %}
+        
+
+        <p>Buying Cost: {{ garment.buying_cost }}</p>
+        <p>Selling Price: {{ garment.selling_price }}</p>
+    </div>
+
+    <div class="buttons">
+        <div>
+            <form action="/garments/{{garment.id}}/edit">
+                <button class="edit-button">Edit Details</button>
+            </form>
+        </div>
+
+        <div>
+            <form action="/garments/{{ garment.id }}/delete" method="post">
+                <button class="delete-button">Delete</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

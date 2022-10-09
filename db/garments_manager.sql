@@ -10,9 +10,9 @@ CREATE TABLE brands (
 CREATE TABLE garments (
     id SERIAL PRIMARY KEY, 
     name VARCHAR(255),
+    brand_id INT NOT NULL REFERENCES brands(id),
     description TEXT,
     stock_quantity INT,
     buying_cost FLOAT,
-    selling_price FLOAT,
-    brand_id INT NOT NULL REFERENCES brands(id)
+    selling_price FLOAT
 );

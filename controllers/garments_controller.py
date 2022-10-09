@@ -7,22 +7,56 @@ import repositories.brand_repository as brand_repository
 
 garments_blueprint = Blueprint("garments", __name__)
 
-@garments_blueprint.route("/garments")
-def garments():
+@garments_blueprint.route("/garments", methods=['GET'])
+def new_garment():
+    brands = brand_repository.select_all()
     garments = garment_repository.select_all()
-    return render_template("garments/index.html", garments = garments)
+    return render_template("garments/index.html", garments = garments, brands = brands)
 
 @garments_blueprint.route("/garments", methods=['POST'])
 def create_garment():
-    brand_id = request.form['brand_id']
     name = request.form['name']
+    brand_id = request.form['brand']
     description = request.form['description']
     stock_quantity = request.form['stock_quantity']
     buying_cost = request.form['buying_cost']
     selling_price = request.form['selling_price']
-    brand = brand_repository.select(brand_id)
-    garment = Garment(name, brand, description, stock_quantity, buying_cost, selling_price)
+    brands = brand_repository.select(brand_id)
+    garment = Garment(name, brands, description, stock_quantity, buying_cost, selling_price)
     garment_repository.save(garment)
     
     return redirect("/garments")
+
+@garments_blueprint.route("/garments/<id>", methods=['GET'])
+def individual_garment(id):
+    garment = garment_repository.select(id)
+    brands = brand_repository.select_all()
+    return render_template("garments/individual.html", garment = garment, brands = brands)
+
+@garments_blueprint.route("/garments/<id>/edit", methods=['GET'])
+def edit_garment(id):
+    garment = garment_repository.select(id)
+    brands = brand_repository.select_all()
+    return render_template("garments/edit.html", garment = garment, brands = brands)
+
+@garments_blueprint.route("/garments/<id>", methods=['POST'])
+def update_details(id):
+    name = request.form['name']
+    brands = request.form['brands']
+    description = request.form['description']
+    stock_quantity = request.form['stock_quantity']
+    buying_cost = request.form['buying_cost']
+    selling_price = request.form['selling_price']
+    brands = brand_repository.select(brands)
+    garment = Garment(name, brands, description, stock_quantity, buying_cost, selling_price, id)
+    garment_repository.update(garment)
+
+    return redirect("/garments")
+
+@garments_blueprint.route("/garments/<id>/delete", methods=['POST'])
+def delete_garment(id):
+    garment_repository.delete(id)
+    return redirect("/garments")
+
+
 
