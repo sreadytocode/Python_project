@@ -50,7 +50,7 @@ nav {
 }
 
 footer {
-    display: flex;
+    display: block;
     color: brown;
     flex-direction:column; 
     bottom: 0;
@@ -135,10 +135,10 @@ footer {
 }
 
 .individual-garment {
-    display: flex;
-    margin-left: 100px;
+    display: block;
+    margin-left: 1px;
     overflow: hidden;
-    float: left;
+    /* float: left; */
     align-content: flex-start;
 
 }
@@ -146,6 +146,7 @@ footer {
 .individual-text {
     text-align: right;
     align-content: flex-end;
+    margin-bottom: 10px;
 }
 
 .buttons {
@@ -153,7 +154,10 @@ footer {
 }
 
 .individual-content {
-    align-items: baseline;
+    /* align-items: baseline; */
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
 }
 
 .footer {
@@ -211,3 +215,31 @@ span {
     gap: 5rem;
     margin: 10px;
 }
+
+.individual-brand-title {
+    color: brown;
+    font-weight: bold;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+}
+
+.individual-brand-buttons {
+    display: block;
+    justify-content: center;
+}
+
+.brand-button {
+    margin: 4px;
+    
+    color: brown;
+    text-align: center;
+    padding: 0.3rem;
+    gap: 0.5rem;
+    font-weight: bold;
+}
+
+.combine {
+    display: block;
+}
+

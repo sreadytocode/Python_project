@@ -2,23 +2,25 @@
 
 {% block content %}
     
+<section>
+<div>
+    <h1 class="individual-brand-title">{{ brand.name }}</h1>
+    
+</div>
+
+<div class="individual-brand-buttons">
     <div>
-        <h1>{{ brand.name }}</h1>
-        
+        <form action="/brands/{{brand.id}}/edit">
+            <button class="brand-button">Edit details</button>
+        </form>
     </div>
     
-    <div class="individual-brand-buttons">
-        <div>
-            <form action="/brands/{{brand.id}}/edit">
-                <button class="edit-brand-button">Edit details</button>
-            </form>
-        </div>
-
         <div>
             <form action="/brands/{{ brand.id }}/delete" method="post">
-                <button>Delete Brand</button>
+                <button class="brand-button">Delete Brand</button>
             </form>
-
+            </div>
+            <hr>
             <div>
         
                 {% for garment in garments %}
@@ -37,7 +39,7 @@
 
         </div>
     </div>
-
+</section>
 
 
 {% endblock content %}
