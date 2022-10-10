@@ -40,7 +40,8 @@ def individual_garment(id):
 def edit_garment(id):
     garment = garment_repository.select(id)
     brands = brand_repository.select_all()
-    return render_template("garments/edit.html", garment = garment, brands = brands)
+    images = image_repository.select_all()
+    return render_template("garments/edit.html", garment = garment, brands = brands, images = images)
 
 @garments_blueprint.route("/garments/<id>", methods=['POST'])
 def update_details(id):
