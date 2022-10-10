@@ -2,7 +2,7 @@
 
 {% block content %}
 <div>
-    <h4>Add Brand:</h4>
+    <h4 class="brand-title">Add Brand:</h4>
     <form class="add_brand" action="/brands" method="post">
         <div>
             <label for="brand_name">Name:</label>
@@ -13,7 +13,7 @@
     </form>
 </div>
 <hr>
-<h1>All Brands</h1>
+<h1 class="all-brands">All Brands</h1>
     <div>
         {% for brand in brands  %}
             <div>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        {% for brand in brands %}
+
+        {% for brand in brands %}
+                {% if brand.id == garment.brand.id %} 
+                <p>Brand: {{ garment.name }}</p>
+                {% endif %}   
+                {% endfor %}
+
+
+
+
+    </div>
+    
+{% endblock content %}
