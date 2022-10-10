@@ -44,15 +44,15 @@
     </form>
 </div>
 <hr>
-<h1>All Garments</h1>
+<h1 class="all-garments">All Garments</h1>
 <div>
     {% for garment in garments  %}
         <div>
-           <a href="/garments/{{ garment.id }}"><h3>{{ garment.name }}</h3></a> 
+           <a class="text" href="/garments/{{ garment.id }}"><h3>{{ garment.name }}</h3></a> 
         </div>
         {% for image in images %}
             {% if garment.id == image.garment.id %}
-            <a href="/garments/{{ garment.id }}"><img src="static/css/{{image.name}}" alt="{{ image.name }}"/></a>
+            <a class="img" href="/garments/{{ garment.id }}"><img src="static/css/{{image.name}}" alt="{{ image.name }}"/></a>
             {% endif %}
         {% endfor %}
         
