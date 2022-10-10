@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS images;
 DROP TABLE IF EXISTS garments;
 DROP TABLE IF EXISTS brands;
 
@@ -15,4 +16,10 @@ CREATE TABLE garments (
     stock_quantity INT,
     buying_cost FLOAT,
     selling_price FLOAT
+);
+
+CREATE TABLE images (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    garment_id INT NOT NULL REFERENCES garments(id)
 );

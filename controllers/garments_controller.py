@@ -4,6 +4,7 @@ from flask import Blueprint
 from models.garment import Garment
 import repositories.garment_repository as garment_repository
 import repositories.brand_repository as brand_repository
+import repositories.image_repository as image_repository
 
 garments_blueprint = Blueprint("garments", __name__)
 
@@ -11,7 +12,8 @@ garments_blueprint = Blueprint("garments", __name__)
 def new_garment():
     brands = brand_repository.select_all()
     garments = garment_repository.select_all()
-    return render_template("garments/index.html", garments = garments, brands = brands)
+    images = image_repository.select_all()
+    return render_template("garments/index.html", garments = garments, brands = brands, images = images)
 
 @garments_blueprint.route("/garments", methods=['POST'])
 def create_garment():
@@ -31,7 +33,8 @@ def create_garment():
 def individual_garment(id):
     garment = garment_repository.select(id)
     brands = brand_repository.select_all()
-    return render_template("garments/individual.html", garment = garment, brands = brands)
+    images = image_repository.select_all()
+    return render_template("garments/individual.html", garment = garment, brands = brands, images = images)
 
 @garments_blueprint.route("/garments/<id>/edit", methods=['GET'])
 def edit_garment(id):

@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
     <div>
+            
+        {% for image in images %}
+            {% if garment.id == image.garment.id %}
+                <img src="static/css/{{image.name}}" alt="{{ image.name }}"/>
+            {% endif %}
+        {% endfor %}
+
         <p>Name: {{ garment.name }} </p>
-    
+
         {% for brand in brands %}
             {% if brand.id == garment.brand.id %} 
                 <p>Brand: {{ brand.name }}</p>

@@ -50,7 +50,12 @@
         <div>
            <a href="/garments/{{ garment.id }}"><h3>{{ garment.name }}</h3></a> 
         </div>
-        <img src="static/css/{{garment.image}}" alt="{{garment.altImage}}"/>
+        {% for image in images %}
+            {% if garment.id == image.garment.id %}
+            <a href="/garments/{{ garment.id }}"><img src="static/css/{{image.name}}" alt="{{ image.name }}"/></a>
+            {% endif %}
+        {% endfor %}
+        
         {% if garment.stock_quantity == 1 %}  
         <span>&#10071; Low Stock only {{ garment.stock_quantity }} item left!</span>
         {% endif %}

@@ -8,7 +8,7 @@ def save(garment):
     sql = """
     INSERT INTO garments(name, brand_id, description, stock_quantity, buying_cost, selling_price)
     VALUES (%s, %s, %s, %s, %s, %s)
-    RETURNING *
+    RETURNING id
     """
     values = [garment.name, garment.brand.id, garment.description, garment.stock_quantity, garment.buying_cost, garment.selling_price]
     results = run_sql(sql, values)
