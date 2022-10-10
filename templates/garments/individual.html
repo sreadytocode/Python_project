@@ -33,6 +33,16 @@
                 
                 <p>Buying Cost: {{ garment.buying_cost }}</p>
                 <p>Selling Price: {{ garment.selling_price }}</p>
+
+                <div>
+                    <form action="/garments/{ garment.id }/markup" method="get">
+                        <label for="markup">Markup</label>
+                        <select name="markup" id="markup">
+                            <option value="{{ garment.markup }}">{{ garment.markup }}</option>
+                        </select>
+                    </form>
+                </div>
+
             </div>
             
             <div class="buttons">

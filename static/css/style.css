@@ -156,6 +156,6 @@ footer {
 }
 
 .footer {
-    position: absolute;
+    /* position: absolute; */
     z-index: 9999;
 }

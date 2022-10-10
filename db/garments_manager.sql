@@ -15,7 +15,7 @@ CREATE TABLE garments (
     description TEXT,
     stock_quantity INT,
     buying_cost FLOAT,
-    selling_price FLOAT
+    selling_price FLOAT,
 );
 
 CREATE TABLE images (

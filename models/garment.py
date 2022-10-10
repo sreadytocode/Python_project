@@ -7,4 +7,8 @@ class Garment:
         self.stock_quantity = stock_quantity
         self.buying_cost = buying_cost
         self.selling_price = selling_price
+        self.markup = selling_price - buying_cost  
         self.id = id
+
+    
+   
