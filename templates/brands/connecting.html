@@ -2,14 +2,14 @@
 
 {% block content %}
     <div>
-        {% for brand in brands %}
 
-        {% for brand in brands %}
+        <h1>{{ brand.name }}</h1>
+
+        {% for garment in garments %}
                 {% if brand.id == garment.brand.id %} 
                 <p>Brand: {{ garment.name }}</p>
                 {% endif %}   
                 {% endfor %}
-
 
 
 

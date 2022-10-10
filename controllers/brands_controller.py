@@ -4,6 +4,7 @@ from flask import Blueprint
 from models.brand import Brand
 import repositories.brand_repository as brand_repository
 import repositories.garment_repository as garment_repository
+import repositories.image_repository as image_repository
 
 brands_blueprint = Blueprint("brands", __name__)
 
@@ -42,3 +43,11 @@ def update_brand_details(id):
 def delete_brand(id):
     brand_repository.delete(id)
     return redirect("/brands")
+
+@brands_blueprint.route("/brands/<id>/garments", methods=['GET'])
+def get_brand_garments(id):
+    images = image_repository.select_all()
+    garments = garment_repository.select_all()
+    brand = brand_repository.select(id)
+
+    return render_template("brands/connecting.html", images = images, garments = garments, brand = brand)
