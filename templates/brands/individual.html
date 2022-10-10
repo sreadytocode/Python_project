@@ -3,42 +3,36 @@
 {% block content %}
     
 <section>
-<div>
-    <h1 class="individual-brand-title">{{ brand.name }}</h1>
-    
-</div>
-
-<div class="individual-brand-buttons">
     <div>
-        <form action="/brands/{{brand.id}}/edit">
-            <button class="brand-button">Edit details</button>
-        </form>
+        <h1 class="individual-brand-title">{{ brand.name }}</h1>
     </div>
-    
+    <div class="individual-brand-buttons">
+        <div>
+            <form action="/brands/{{brand.id}}/edit">
+                <button class="brand-button">Edit details</button>
+            </form>
+        </div>
         <div>
             <form action="/brands/{{ brand.id }}/delete" method="post">
                 <button class="brand-button">Delete Brand</button>
             </form>
-            </div>
-            <hr>
-            <div>
-        
-                {% for garment in garments %}
-                        {% if brand.id == garment.brand.id %} 
-                        <a href="/garments/{{ garment.id }}"><p>Brand: {{ garment.name }}</p></a>
-                {% for image in images %}
-                    {% if garment.id == image.garment.id %}
-                        <a href="/garments/{{ garment.id }}"><img src="/static/css/{{image.name}}" alt="{{ image.name }}"/></a>
-                    {% endif %}
-                {% endfor %}
-                        {% endif %}   
-                        {% endfor %}
-        
-            </div>
-
-
         </div>
     </div>
+    <hr>
+        <div class="brand-garment">
+            {% for garment in garments %}
+                <div >
+                    {% if brand.id == garment.brand.id %} 
+                    <a href="/garments/{{ garment.id }}"><p>Brand: {{ garment.name }}</p></a>
+                        {% for image in images %}
+                            {% if garment.id == image.garment.id %}
+                                <a href="/garments/{{ garment.id }}"><img src="/static/css/{{image.name}}" alt="{{ image.name }}"/></a>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>       
+            {% endfor %}
+        </div>
 </section>
 
 

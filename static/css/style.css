@@ -137,9 +137,9 @@ footer {
 .individual-garment {
     display: block;
     margin-left: 1px;
-    overflow: hidden;
     /* float: left; */
     align-content: flex-start;
+    padding: 1rem;
 
 }
 
@@ -147,6 +147,7 @@ footer {
     text-align: right;
     align-content: flex-end;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .buttons {
@@ -157,7 +158,6 @@ footer {
     /* align-items: baseline; */
     display: flex;
     justify-content: center;
-    gap: 10rem;
 }
 
 .footer {
@@ -225,7 +225,7 @@ span {
 }
 
 .individual-brand-buttons {
-    display: block;
+    display: flex;
     justify-content: center;
 }
 
@@ -243,3 +243,8 @@ span {
     display: block;
 }
 
+.brand-garment{
+    display: flex;
+    justify-content: center;
+    
+}
