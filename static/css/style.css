@@ -209,4 +209,5 @@ span {
 .brand-names {
     color: brown;
     gap: 5rem;
+    margin: 10px;
 }

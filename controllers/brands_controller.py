@@ -23,8 +23,10 @@ def create_brand():
 
 @brands_blueprint.route("/brands/<id>", methods=['GET'])
 def individual_brand(id):
+    images = image_repository.select_all()
+    garments = garment_repository.select_all()
     brand = brand_repository.select(id)
-    return render_template("brands/individual.html", brand = brand)
+    return render_template("brands/individual.html", brand = brand, garments = garments, images = images)
 
 @brands_blueprint.route("/brands/<id>/edit", methods=['GET'])
 def edit_brand(id):
@@ -43,11 +45,3 @@ def update_brand_details(id):
 def delete_brand(id):
     brand_repository.delete(id)
     return redirect("/brands")
-
-@brands_blueprint.route("/brands/<id>/garments", methods=['GET'])
-def get_brand_garments(id):
-    images = image_repository.select_all()
-    garments = garment_repository.select_all()
-    brand = brand_repository.select(id)
-
-    return render_template("brands/connecting.html", images = images, garments = garments, brand = brand)

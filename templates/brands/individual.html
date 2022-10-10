@@ -15,15 +15,26 @@
         </div>
 
         <div>
-            <form action="/brands/{{ brand.id }}/garments">
-                <button>View Brand products</button>
-            </form>
-        </div>
-
-        <div>
             <form action="/brands/{{ brand.id }}/delete" method="post">
                 <button>Delete Brand</button>
             </form>
+
+            <div>
+        
+                {% for garment in garments %}
+                        {% if brand.id == garment.brand.id %} 
+                        <a href="/garments/{{ garment.id }}"><p>Brand: {{ garment.name }}</p></a>
+                {% for image in images %}
+                    {% if garment.id == image.garment.id %}
+                        <a href="/garments/{{ garment.id }}"><img src="/static/css/{{image.name}}" alt="{{ image.name }}"/></a>
+                    {% endif %}
+                {% endfor %}
+                        {% endif %}   
+                        {% endfor %}
+        
+            </div>
+
+
         </div>
     </div>
 
