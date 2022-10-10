@@ -52,8 +52,7 @@ def update_details(id):
     buying_cost = request.form['buying_cost']
     selling_price = request.form['selling_price']
     brands = brand_repository.select(brands)
-    markup = garment_repository.select(markup)
-    garment = Garment(name, brands, description, stock_quantity, buying_cost, selling_price, markup, id)
+    garment = Garment(name, brands, description, stock_quantity, buying_cost, selling_price, id)
     garment_repository.update(garment)
 
     return redirect("/garments")
