@@ -4,7 +4,7 @@
     
 <section>
     <div>
-        <h1 class="individual-garment-type">{{ type.type }}</h1>
+        <h1 class="individual-garment-type">All {{ type.type }}'s</h1>
     </div>
     <div class="individual-type-buttons">
         <div>
@@ -23,7 +23,7 @@
             {% for garment in garments %}
                 <div >
                     {% if type.id == garment.type.id %} 
-                    <a class="hyperlink" href="/garments/{{ garment.id }}"><p>Brand: {{ garment.name }}</p></a>
+                    <a class="hyperlink" href="/garments/{{ garment.id }}"><p>{{ garment.name }}</p></a>
                         {% for image in images %}
                             {% if garment.id == image.garment.id %}
                                 <a href="/garments/{{ garment.id }}"><img src="/static/css/{{image.name}}" alt="{{ image.name }}"/></a>
