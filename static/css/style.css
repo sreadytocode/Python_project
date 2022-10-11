@@ -76,7 +76,7 @@ footer {
     color: brown;
     font-style: italic;
     font-weight: bold;
-    background-image: url("Garments.png");
+    background-image: url("all-garments2.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -88,8 +88,20 @@ footer {
     border: dashed solid black;
     font-size: 2rem;
     color: brown;
-    background-image: url("Brand.png");
+    background-image: url("brands1.png");
     background-size: cover;
+}
+
+.types {
+    width: 14rem;
+    height: 9rem;
+    border-radius: 2rem;
+    border: dashed solid black;
+    font-size: 2rem;
+    color: brown;
+    background-image: url("garment-types3.png");
+    background-size: cover;
+    display: inline;
 }
 .add-heading {
     text-align: center;

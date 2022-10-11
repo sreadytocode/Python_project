@@ -1,24 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-    <form action="/types">
-        <button><h3>Types of Garments</h3></button>
-    </form>
-</div>
 <section class="content">
     <div class="home-buttons">
-    <div>
-        <form action="/garments">
-            <button class="garments"></button>
-        </form>
-    </div>
-
-    <div>
-        <form action="/brands">
-            <button class="brands"></button>
-        </form>
-    </div>
+        <div>
+            <form action="/garments">
+                <button class="garments"></button>
+            </form>
         </div>
+        
+        <div>
+            <form action="/brands">
+                <button class="brands"></button>
+            </form>
+        </div>
+        
+        <div>
+            <form action="/types">
+                <button class="types"></button>
+            </form>
+        </div>
+    </div>
 </section>
 {% endblock content %}
