@@ -4,6 +4,7 @@ from flask import Blueprint
 from models.garment import Garment
 import repositories.garment_repository as garment_repository
 import repositories.brand_repository as brand_repository
+import repositories.type_repository as type_repository
 import repositories.image_repository as image_repository
 
 garments_blueprint = Blueprint("garments", __name__)

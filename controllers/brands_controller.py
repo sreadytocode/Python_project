@@ -5,6 +5,7 @@ from models.brand import Brand
 import repositories.brand_repository as brand_repository
 import repositories.garment_repository as garment_repository
 import repositories.image_repository as image_repository
+import repositories.type_repository as type_repository
 
 brands_blueprint = Blueprint("brands", __name__)
 

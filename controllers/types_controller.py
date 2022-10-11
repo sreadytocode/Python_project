@@ -7,11 +7,4 @@ import repositories.brand_repository as brand_repository
 import repositories.image_repository as image_repository
 import repositories.type_repository as type_repository
 
-images_blueprint = Blueprint("images", __name__)
-
-@images_blueprint.route("/imgs/<path>")
-def images(path):
-    garment = garment_repository.select_all()
-    brands = brand_repository.select_all()
-    images = image_repository.select(path)
-    return render_template("garments/individual.html", garment = garment, brands = brands, images = images)
+types_blueprint = Blueprint("types", __name__)

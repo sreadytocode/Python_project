@@ -3,13 +3,15 @@ from flask import Flask, render_template
 from controllers.garments_controller import garments_blueprint
 from controllers.brands_controller import brands_blueprint
 from controllers.images_controller import images_blueprint
+from controllers.types_controller import types_blueprint
 
 app = Flask(__name__)
-# app._static_folder = "static"
+
 
 app.register_blueprint(garments_blueprint)
 app.register_blueprint(brands_blueprint)
 app.register_blueprint(images_blueprint)
+app.register_blueprint(types_blueprint)
 
 @app.route("/")
 def home():
