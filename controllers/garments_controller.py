@@ -29,7 +29,6 @@ def create_garment():
     brands = brand_repository.select(brand_id)
     types = type_repository.select(type_id)
     garment = Garment(name, brands, types, description, stock_quantity, buying_cost, selling_price)
-    # garment.calculate_markup()
     garment_repository.save(garment)
     
     return redirect("/garments")

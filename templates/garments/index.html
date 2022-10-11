@@ -52,6 +52,22 @@
         </div>
     </form>
 </div>
+    <div>
+        <hr>
+        <div>
+            <form action="/types">
+                <label for="type">Filter by type:</label>
+                <select name="type_id" id="type_id">
+                    {% for type in types %}
+                        <option value= "{{ type.id }}">{{ type.type }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Filter">
+                
+                
+            </form>
+        </div>
+    </div>
 <hr>
 <h1 class="all-garments">All Garments</h1>
 <div>
