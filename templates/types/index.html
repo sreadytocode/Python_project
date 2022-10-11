@@ -1,29 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
 <div>
-    <h4 class="type-title">Add Garment Type:</h4>
-    <form class="add_type" action="/types" method="post">
-        <div>
+    <div class="add-type-title">
+        <h4 class="type-title">Add Garment Type:</h4>
+    </div>
+    <div>
+        <form class="add-type" action="/types" method="post">
             <label for="type_type">Type of Garment:</label>
-            <input type="text" name="type_type" id="type_type">
+                <input type="text" name="type_type" id="type_type">
 
-        </div>
-            <input type="submit" value="Submit">
-    </form>
-</div>
+                <input type="submit" value="Submit">
+        </form>
+    </div>
 <hr>
-<h1 class="all-types">All Types of Garments</h1>
+    <div>
+        <h1 class="all-types">All Types of Garments</h1>
+    </div>
     <div>
         {% for type in types  %}
-            <div>
+            <div class="position-types">
                 <form action="/types/{{ type.id }}">
                     <button class="type-types"><h3>{{ type.type }}</h3></button>
                 </form>
             </div>
         {% endfor %}
-
     </div>
 
 

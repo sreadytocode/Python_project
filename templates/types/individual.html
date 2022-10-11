@@ -9,12 +9,12 @@
     <div class="individual-type-buttons">
         <div>
             <form action="/types/{{type.id}}/edit">
-                <button class="type-button">Edit details</button>
+                <button class="type-button">Edit {{ type.type }} type details</button>
             </form>
         </div>
         <div>
             <form action="/types/{{ type.id }}/delete" method="post">
-                <button class="type-button">Delete Garment Type</button>
+                <button class="type-button">Delete {{ type.type }} type</button>
             </form>
         </div>
     </div>
