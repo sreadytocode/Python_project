@@ -14,3 +14,6 @@ class Garment:
         markup = float(self.selling_price) - float(self.buying_cost) 
         return markup
         
+    def filter(self):
+        if self.type == (type):
+            return (name)

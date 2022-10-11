@@ -70,7 +70,6 @@ def delete_garment(id):
     garment_repository.delete(id)
     return redirect("/garments")
 
-
     
 
 

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+<section>
+    <div>
+        <h1 class="individual-garment-type">{{ type.type }}</h1>
+    </div>
+    <div class="individual-type-buttons">
+        <div>
+            <form action="/types/{{type.id}}/edit">
+                <button class="type-button">Edit details</button>
+            </form>
+        </div>
+        <div>
+            <form action="/types/{{ type.id }}/delete" method="post">
+                <button class="type-button">Delete Garment Type</button>
+            </form>
+        </div>
+    </div>
+    <hr>
+        <div class="type-garment">
+            {% for garment in garments %}
+                <div >
+                    {% if type.id == garment.type.id %} 
+                    <a class="hyperlink" href="/garments/{{ garment.id }}"><p>Brand: {{ garment.name }}</p></a>
+                        {% for image in images %}
+                            {% if garment.id == image.garment.id %}
+                                <a href="/garments/{{ garment.id }}"><img src="/static/css/{{image.name}}" alt="{{ image.name }}"/></a>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>       
+            {% endfor %}
+        </div>
+</section>
+
+
+{% endblock content %}
