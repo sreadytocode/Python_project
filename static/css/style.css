@@ -18,18 +18,22 @@ body {
 
 nav {
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0.5rem;
+    padding: 0.4rem;
     justify-content: space-evenly;
+    margin-left: auto;
+    margin-right: 40px;
 }
 
 .title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: brown;
-    
+    opacity: 0.9;
+    height: 10rem;
+    width: 15rem;
+    display: inline-block;
+    display: block;
+    align-content: center;
+    border-radius: 4.5rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .home-buttons {
@@ -247,4 +251,9 @@ span {
     display: flex;
     justify-content: center;
     
+}
+
+.hyperlink {
+    color: brown;
+    font-weight: bold;
 }

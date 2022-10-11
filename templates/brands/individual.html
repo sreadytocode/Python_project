@@ -23,7 +23,7 @@
             {% for garment in garments %}
                 <div >
                     {% if brand.id == garment.brand.id %} 
-                    <a href="/garments/{{ garment.id }}"><p>Brand: {{ garment.name }}</p></a>
+                    <a class="hyperlink" href="/garments/{{ garment.id }}"><p>Brand: {{ garment.name }}</p></a>
                         {% for image in images %}
                             {% if garment.id == image.garment.id %}
                                 <a href="/garments/{{ garment.id }}"><img src="/static/css/{{image.name}}" alt="{{ image.name }}"/></a>

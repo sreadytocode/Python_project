@@ -52,7 +52,7 @@
         </div>
         {% for image in images %}
             {% if garment.id == image.garment.id %}
-            <a class="img" href="/garments/{{ garment.id }}"><img src="static/css/{{image.name}}" alt="{{ image.name }}"/></a>
+            <a class="img" href="/garments/{{ garment.id }}"><img src="/static/css/{{image.name}}" alt="{{ image.name }}"/></a>
             {% endif %}
         {% endfor %}
         
