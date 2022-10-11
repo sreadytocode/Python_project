@@ -331,6 +331,11 @@ span {
     
 }
 
+.type-garment{
+    display: flex;
+    justify-content: center;
+}
+
 .hyperlink {
     color: brown;
     font-weight: bold;

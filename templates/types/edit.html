@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div>
     <form action="/types/{{ type.id }}" method="post">
-
         <div>
             <label for="type_type">Type of Garment:</label>
-            <input type="text" id="type_type" name="type_type" value="{{ type.type }}" required autofocus>
         </div>
-
-        <button type="submit">Update Garment Type</button>
+        <div>
+            <input type="text" id="type_type" name="type_type" value="{{ type.type }}" required autofocus>
+            <button type="submit">Update Garment Type</button>
+        </div>
     </form>
-    
+</div>    
 {% endblock content %}
