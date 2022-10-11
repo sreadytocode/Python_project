@@ -14,18 +14,22 @@ def new_garment():
     brands = brand_repository.select_all()
     garments = garment_repository.select_all()
     images = image_repository.select_all()
-    return render_template("garments/index.html", garments = garments, brands = brands, images = images)
+    types = type_repository.select_all()
+    return render_template("garments/index.html", garments = garments, brands = brands, images = images, types = types)
 
 @garments_blueprint.route("/garments", methods=['POST'])
 def create_garment():
     name = request.form['name']
     brand_id = request.form['brand']
+    type_id = request.form['type']
     description = request.form['description']
     stock_quantity = request.form['stock_quantity']
     buying_cost = request.form['buying_cost']
     selling_price = request.form['selling_price']
     brands = brand_repository.select(brand_id)
-    garment = Garment(name, brands, description, stock_quantity, buying_cost, selling_price)
+    types = type_repository.select(type_id)
+    garment = Garment(name, brands, types, description, stock_quantity, buying_cost, selling_price)
+    # garment.calculate_markup()
     garment_repository.save(garment)
     
     return redirect("/garments")
@@ -35,25 +39,29 @@ def individual_garment(id):
     garment = garment_repository.select(id)
     brands = brand_repository.select_all()
     images = image_repository.select_all()
-    return render_template("garments/individual.html", garment = garment, brands = brands, images = images)
+    types = type_repository.select_all()
+    return render_template("garments/individual.html", garment = garment, brands = brands, images = images, types = types)
 
 @garments_blueprint.route("/garments/<id>/edit", methods=['GET'])
 def edit_garment(id):
     garment = garment_repository.select(id)
     brands = brand_repository.select_all()
     images = image_repository.select_all()
-    return render_template("garments/edit.html", garment = garment, brands = brands, images = images)
+    types = type_repository.select_all()
+    return render_template("garments/edit.html", garment = garment, brands = brands, images = images, types = types)
 
 @garments_blueprint.route("/garments/<id>", methods=['POST'])
 def update_details(id):
     name = request.form['name']
     brands = request.form['brands']
+    types = request.form['types']
     description = request.form['description']
     stock_quantity = request.form['stock_quantity']
     buying_cost = request.form['buying_cost']
     selling_price = request.form['selling_price']
     brands = brand_repository.select(brands)
-    garment = Garment(name, brands, description, stock_quantity, buying_cost, selling_price, id)
+    types = type_repository.select(types)
+    garment = Garment(name, brands, types, description, stock_quantity, buying_cost, selling_price, id)
     garment_repository.update(garment)
 
     return redirect("/garments")

@@ -152,6 +152,8 @@ footer {
     align-content: flex-end;
     margin-bottom: 10px;
     font-weight: bold;
+    color: brown;
+    font-size: 1.5rem;
 }
 
 .buttons {

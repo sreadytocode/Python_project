@@ -8,8 +8,9 @@ class Garment:
         self.stock_quantity = stock_quantity
         self.buying_cost = buying_cost
         self.selling_price = selling_price
-        self.markup = float(selling_price) - float(buying_cost)  
         self.id = id
 
-    
-   
+    def calculate_markup(self):
+        markup = float(self.selling_price) - float(self.buying_cost) 
+        return markup
+        

@@ -15,6 +15,15 @@
         </div>
 
         <div>
+            <label for="type">Type of Garment:</label>
+            <select name="type_id" id="type_id">
+                {% for type in types %}
+                    <option value= "{{ type.id }}">{{ type.type }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
             <label for="name">Name:</label>
             <input type="text" name="name" id="name" placeholder="Enter details..." required>
         </div>

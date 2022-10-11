@@ -18,6 +18,12 @@
                 <p>Brand: {{ brand.name }}</p>
                 {% endif %}   
                 {% endfor %}
+
+                {% for type in types %}
+                {% if type.id == garment.type.id %} 
+                <p>Type of Garment: {{ type.type }}</p>
+                {% endif %}   
+                {% endfor %}
                 
                 <p>Description: {{ garment.description }}</p>
                 
@@ -36,7 +42,7 @@
                 <p>Selling Price: {{ garment.selling_price }}</p>
 
                     <div>
-                        <p>Markup: {{ garment.markup }}</p>
+                        <p>Markup: {{ garment.calculate_markup() }}</p>
                     </div>
 
             </div>
