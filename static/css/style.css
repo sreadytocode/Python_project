@@ -340,3 +340,30 @@ span {
     color: brown;
     font-weight: bold;
 }
+
+.edit-page-type{
+    color: brown;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.edit-brand-details{
+    color: brown;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.edit-garment-details{
+    color: brown;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 15px;
+    padding: 5rem;
+}
+

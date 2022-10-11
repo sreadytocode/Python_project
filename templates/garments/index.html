@@ -15,7 +15,7 @@
         </div>
 
         <div>
-            <label for="type">Type of Garment:</label>
+            <label for="type_id">Type of Garment:</label>
             <select name="type_id" id="type_id">
                 {% for type in types %}
                     <option value= "{{ type.id }}">{{ type.type }}</option>

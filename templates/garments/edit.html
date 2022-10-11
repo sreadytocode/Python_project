@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="edit-garment-details">
     <form action="/garments/{{garment.id}}" method="post">
         <div>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" value="{{ garment.name }}" required autofocus>
         </div>
-
         <div>
             <label for="type">Type of Garment:</label>
             <select name="types" id="types">
@@ -17,7 +17,6 @@
                 {% endfor %}
             </select>
         </div>
-
         <div>
             <label for="brands">Brand:</label>
             <select name="brands" id="brands">
@@ -29,8 +28,6 @@
                 {% endfor %}
             </select>
         </div>
-
-
         <div>
             <label for="description">Description:</label>
             <input type="text" id="description" name="description" value="{{ garment.description }}" required>
@@ -47,11 +44,8 @@
             <label for="selling_price">Selling Price:</label>
             <input type="number" id="selling_price" min="0" step=".01" name="selling_price" value="{{ garment.selling_price }}" required>
         </div>
-
-
         <button type="submit">Update Garment Details</button>
-
-
-
     </form>
+</div>
+    
 {% endblock content %}

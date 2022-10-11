@@ -21,7 +21,7 @@ def new_garment():
 def create_garment():
     name = request.form['name']
     brand_id = request.form['brand']
-    type_id = request.form['type']
+    type_id = request.form['type_id']
     description = request.form['description']
     stock_quantity = request.form['stock_quantity']
     buying_cost = request.form['buying_cost']

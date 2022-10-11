@@ -1,15 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
+<div class="edit-page-type">
     <form action="/types/{{ type.id }}" method="post">
-        <div>
-            <label for="type_type">Type of Garment:</label>
-        </div>
-        <div>
+            <label for="type_type">Change name of garment type:</label>
             <input type="text" id="type_type" name="type_type" value="{{ type.type }}" required autofocus>
-            <button type="submit">Update Garment Type</button>
-        </div>
+            <button type="submit">Update</button>
     </form>
 </div>    
 {% endblock content %}
