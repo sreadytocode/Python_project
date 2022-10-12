@@ -1,9 +1,8 @@
 class Brand:
 
-    def __init__(self, name, id = None):
+    def __init__(self, name, deactive, id = None):
         self.name = name
         self.id = id
+        self.deactivate = deactive
 
-
-    def deactivate_brand(self):
-        pass
+    

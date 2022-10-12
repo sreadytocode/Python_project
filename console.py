@@ -13,10 +13,10 @@ garment_repository.delete_all()
 brand_repository.delete_all()
 image_repository.delete_all()
 
-brand1 = Brand("Asim Jofa")
+brand1 = Brand("Asim Jofa", False)
 brand_repository.save(brand1)
 
-brand2 = Brand("Sana Safinaz")
+brand2 = Brand("Sana Safinaz", False)
 brand_repository.save(brand2)
 
 type1 = Type("Dress")

@@ -7,6 +7,12 @@
         <div>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" value="{{ brand.name }}" required autofocus>
+           
+            <label for="deactivate">Brand Status:</label>
+            <select name="deactivate" id="deactivate">
+                <option value="true">Active</option>
+                <option value="false">Deactivate</option>
+            </select>
             <button type="submit">Update Brand Details</button>
         </div>
 

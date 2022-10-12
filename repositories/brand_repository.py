@@ -5,11 +5,11 @@ from models.brand import Brand
 
 def save(brand):
     sql = """
-    INSERT INTO brands (name)
-    VALUES (%s)
+    INSERT INTO brands (name, deactivate)
+    VALUES (%s, %s)
     RETURNING id
     """
-    values = [brand.name]
+    values = [brand.name, brand.deactivate]
     results = run_sql(sql, values)
     brand.id = results[0]['id']
     return brand
@@ -21,7 +21,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        brand = Brand(row['name'], row['id'])
+        brand = Brand(row['name'], row['deactivate'], row['id'])
         brands.append(brand)
     return brands
 
@@ -33,7 +33,7 @@ def select(id):
 
     if results:
         result = results[0]
-        brand = Brand(result['name'], result['id'])
+        brand = Brand(result['name'], result['deactivate'], result['id'])
     return brand
 
 def delete_all():
@@ -47,9 +47,9 @@ def delete(id):
 
 def update(brand):
     sql = """
-    UPDATE brands SET name
-    = %s 
+    UPDATE brands SET (name, deactivate)
+    = (%s, %s) 
     WHERE id = %s
     """
-    values = [brand.name, brand.id]
+    values = [brand.name, brand.deactivate, brand.id]
     run_sql(sql, values)
