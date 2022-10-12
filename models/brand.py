@@ -6,3 +6,7 @@ class Brand:
         self.deactivate = deactive
 
     
+    def chose_deactivated(self, deactivate):
+        self.deactivate = deactivate
+
+    

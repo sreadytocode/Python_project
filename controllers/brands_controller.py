@@ -39,7 +39,7 @@ def edit_brand(id):
 def update_brand_details(id):
     name = request.form['name']
     deactivate = request.form['deactivate']
-    brands = Brand(name, id)
+    brands = Brand(name, deactivate, id)
     brand_repository.update(brands)
 
     return redirect("/brands")

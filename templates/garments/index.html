@@ -9,7 +9,10 @@
             <label for="brand">Brand:</label>
             <select name="brand" id="brand_id">
                 {% for brand in brands %}
-                    <option value= "{{ brand.id }}">{{ brand.name }}</option>
+                <option value= "{{ brand.id }}">{{ brand.name }}</option>
+                {% if brand.deactive == false %}
+                
+                {% endif %}
                 {% endfor %}
             </select>
         </div>
