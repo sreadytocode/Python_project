@@ -17,8 +17,8 @@ def brands():
 @brands_blueprint.route("/brands", methods=['POST'])
 def create_brand():
     name = request.form['brand_name']
-    deactive = request.form['deactivate']
-    brand = Brand(name, deactive)
+    deactivate = request.form['deactivate']
+    brand = Brand(name, deactivate)
     brand_repository.save(brand)
 
     return redirect("/brands")
