@@ -67,14 +67,12 @@ def update_details(id):
     garment = Garment(name, brands, types, description, stock_quantity, buying_cost, selling_price, id)
     garment_repository.update(garment)
     
-    
-
-
     return redirect("/garments")
 
 @garments_blueprint.route("/garments/<id>/delete", methods=['POST'])
 def delete_garment(id):
     garment_repository.delete(id)
+    image_repository.delete(id)
     return redirect("/garments")
 
     

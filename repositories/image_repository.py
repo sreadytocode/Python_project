@@ -36,8 +36,8 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        garment = garment_repository.select(result['garment_id'])
-        image = Image(result['name'], garment, result['id'])
+        # garment = garment_repository.select(result['garment_id'])
+        image = Image(result['name'], result['garment_id'], result['id'])
     return image
 
 def delete_all():
