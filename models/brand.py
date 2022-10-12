@@ -8,5 +8,6 @@ class Brand:
     
     def chose_deactivated(self, deactivate):
         self.deactivate = deactivate
-
+        if deactivate == False:
+            return self.name
     
