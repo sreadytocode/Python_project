@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.garment import Garment
 from models.brand import Brand
+from models.image import Image
 import repositories.garment_repository as garment_repository
 import repositories.brand_repository as brand_repository
 import repositories.type_repository as type_repository
@@ -22,6 +23,7 @@ def new_garment():
 def create_garment():
     name = request.form['name']
     brand_id = request.form['brand']
+    image = request.form['image']
     type_id = request.form['type_id']
     description = request.form['description']
     stock_quantity = request.form['stock_quantity']
@@ -31,7 +33,8 @@ def create_garment():
     types = type_repository.select(type_id)
     garment = Garment(name, brands, types, description, stock_quantity, buying_cost, selling_price)
     garment_repository.save(garment)
-    
+    images = Image(image, garment)
+    image_repository.save(images)
     return redirect("/garments")
 
 @garments_blueprint.route("/garments/<id>", methods=['GET'])
@@ -63,6 +66,9 @@ def update_details(id):
     types = type_repository.select(types)
     garment = Garment(name, brands, types, description, stock_quantity, buying_cost, selling_price, id)
     garment_repository.update(garment)
+    
+    
+
 
     return redirect("/garments")
 
