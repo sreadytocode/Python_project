@@ -16,7 +16,7 @@ def save(type):
 def select_all():
     types = []
 
-    sql = "SELECT * FROM types"
+    sql = "SELECT * FROM types order by type"
     results = run_sql(sql)
 
     for row in results:
