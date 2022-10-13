@@ -283,6 +283,13 @@ span {
     justify-content: center;
 }
 
+.individual-brand-status{
+    color: brown;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
 .individual-garment-type {
     color: brown;
     font-weight: bold;
@@ -309,7 +316,6 @@ span {
 
 .brand-button {
     margin: 4px;
-    
     color: brown;
     text-align: center;
     padding: 0.3rem;
@@ -323,7 +329,11 @@ span {
 
 .brand-garment{
     display: flex;
+    align-items: center;
     justify-content: center;
+    position: relative;
+    padding: 1rem;
+    margin: 1.2rem;
     
 }
 
@@ -335,6 +345,7 @@ span {
 .hyperlink {
     color: brown;
     font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .edit-page-type{
