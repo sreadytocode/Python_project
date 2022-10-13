@@ -15,8 +15,6 @@ CREATE TABLE types (
     type VARCHAR(255)
 );
 
-
-
 CREATE TABLE garments (
     id SERIAL PRIMARY KEY, 
     name VARCHAR(255),
@@ -31,5 +29,5 @@ CREATE TABLE garments (
 CREATE TABLE images (
     id SERIAL PRIMARY KEY,
     name TEXT,
-    garment_id INT NOT NULL REFERENCES garments(id)
+    garment_id INT NOT NULL REFERENCES garments(id) ON DELETE CASCADE
 );
